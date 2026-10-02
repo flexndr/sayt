@@ -5,102 +5,200 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Фетисов. Автоматизация</title>
 <meta name="description" content="Чат-боты, парсеры, ИИ для почты и документов, приложения для Mac и Windows, контент на нейросетях. Делаю то, что работает без вас.">
+<meta name="theme-color" content="#0e141b">
+<link rel="canonical" href="https://agfetisov.ru/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://agfetisov.ru/">
+<meta property="og:site_name" content="Фетисов. Автоматизация">
+<meta property="og:title" content="Фетисов. Автоматизация — делаю то, что работает без вас">
+<meta property="og:description" content="Чат-боты, парсеры, ИИ для почты и документов, приложения для Mac и Windows, контент на нейросетях. Цены от 500 ₽, типовой бот — 2 дня.">
+<meta property="og:image" content="https://agfetisov.ru/img/youtube.jpg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Фетисов. Автоматизация","url":"https://agfetisov.ru/","image":"https://agfetisov.ru/img/youtube.jpg","description":"Автоматизация на Python и нейросетях для малого бизнеса: чат-боты, парсеры, таблицы, ИИ для почты и документов, приложения, контент для маркетплейсов.","priceRange":"от 500 ₽","areaServed":"RU","founder":{"@type":"Person","name":"Александр Фетисов"},"sameAs":["https://t.me/fetisov_pro","https://github.com/flexndr","https://www.youtube.com/@agfetisov","https://kwork.ru/user/agfetisov"]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* Слой: одна колонка-«лист», слева метки разделов, справа содержание; лог конвейера — единственный акцент */
 :root {
-  --bg: #F3F5F7; --surface: #FFFFFF; --ink: #15202B; --muted: #5B6875; --line: #D8DEE4;
-  --accent: #E8590C; --log-bg: #0F1720; --log-fg: #C9D4DE; --log-ok: #7FD1A8;
-  --f-display: 'Unbounded', 'Golos Text', system-ui, sans-serif;
-  --f-body: 'Golos Text', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --f-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  --bg: #0e141b; --bg2: #121a23; --card: #151e28; --card2: #1a2531; --ink: #f2f5f8; --muted: #9aa8b6; --dim: #6b7988; --line: #24303c;
+  --a1: #ff6028; --a2: #ff2a6e; --grad: linear-gradient(120deg, #ff6028, #ff2a6e); --ok: #7fd1a8;
+  --f: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  color-scheme: dark;
 }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --bg: #0E141A; --surface: #151D25; --ink: #E6ECF1; --muted: #93A1AE; --line: #26313B;
-  --accent: #FF7A33; --log-bg: #080C10; --log-fg: #C9D4DE; --log-ok: #7FD1A8; color-scheme: dark } }
-:root[data-theme="dark"] {
-  --bg: #0E141A; --surface: #151D25; --ink: #E6ECF1; --muted: #93A1AE; --line: #26313B;
-  --accent: #FF7A33; --log-bg: #080C10; --log-fg: #C9D4DE; --log-ok: #7FD1A8; color-scheme: dark }
-
 * { box-sizing: border-box }
-body { background: var(--bg); color: var(--ink); font: 17px/1.6 var(--f-body); padding-inline: 20px; }
-.list { max-width: 1080px; margin: 0 auto; padding-block: 40px 64px; display: grid; gap: 72px }
-h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; line-height: 1.15 }
-h1 { font-size: clamp(34px, 6vw, 64px); font-weight: 700; letter-spacing: -0.02em }
-h2 { font-size: clamp(24px, 3.4vw, 34px); font-weight: 700 }
-h3 { font-size: 19px; font-weight: 500 }
-p { margin: 0; max-width: 62ch }
-a { color: var(--accent) }
-a:focus-visible, .knopka:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px }
-.metka { font: 500 12px/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted) }
+html { scroll-behavior: smooth; scroll-padding-top: 80px }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 var(--f); -webkit-font-smoothing: antialiased; overflow-x: hidden }
+.wrap { max-width: 1200px; margin: 0 auto; padding-inline: 24px }
+h1, h2, h3 { margin: 0; letter-spacing: -0.03em; line-height: 1.05; text-wrap: balance }
+h2 { font-size: clamp(32px, 5vw, 56px); font-weight: 800 }
+h3 { font-size: 21px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.25 }
+p { margin: 0 }
+a { color: inherit }
+.grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent }
+.metka { display: inline-flex; align-items: center; gap: 10px; font: 500 13px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted) }
+.metka::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--grad) }
+section { padding-block: 112px }
+.sh { display: grid; gap: 18px; margin-bottom: 56px; max-width: 760px }
+.sh p { color: var(--muted); font-size: 19px }
 
-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap }
-header .imya { font: 700 15px var(--f-display) }
-header nav { display: flex; gap: 20px; flex-wrap: wrap; font-size: 15px }
-header nav a { color: var(--muted); text-decoration: none }
-header nav a:hover { color: var(--ink) }
+.knopka { display: inline-flex; align-items: center; gap: 10px; padding: 16px 26px; border-radius: 999px; background: var(--grad); color: #fff; text-decoration: none; font-weight: 600; font-size: 16px; border: 0; cursor: pointer; box-shadow: 0 10px 30px -10px rgba(255, 60, 80, .6); transition: transform .2s, box-shadow .2s }
+.knopka:hover { transform: translateY(-2px); box-shadow: 0 16px 40px -12px rgba(255, 60, 80, .75) }
+.knopka.vtor { background: transparent; border: 1px solid var(--line); box-shadow: none; color: var(--ink) }
+.knopka.vtor:hover { border-color: var(--muted) }
+.knopka:disabled { opacity: .6; cursor: default; transform: none }
+a:focus-visible, .knopka:focus-visible, summary:focus-visible { outline: 3px solid var(--a1); outline-offset: 3px }
 
-.geroy { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center }
-.geroy > div { display: grid; gap: 24px; min-width: 0 }
-.geroy .podzag { font-size: 20px; color: var(--muted) }
+/* шапка */
+.shapka { position: sticky; top: 0; z-index: 10; background: rgba(14, 20, 27, .78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(36, 48, 60, .6) }
+.shapka .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 68px }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 700; font-size: 16px; letter-spacing: -0.01em }
+.logo i { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: var(--grad); font: 800 14px var(--f); font-style: normal; color: #fff }
+.shapka nav { display: flex; gap: 28px; font-size: 15px }
+.shapka nav a { color: var(--muted); text-decoration: none }
+.shapka nav a:hover { color: var(--ink) }
+.shapka .knopka { padding: 10px 18px; font-size: 14px; box-shadow: none }
+
+/* герой */
+.geroy { position: relative; padding-block: 96px 80px; overflow: hidden }
+.geroy::before { content: ""; position: absolute; width: 900px; height: 900px; right: -300px; top: -420px; background: radial-gradient(closest-side, rgba(255, 70, 90, .22), transparent); pointer-events: none }
+.geroy::after { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse at 70% 20%, #000 10%, transparent 65%); -webkit-mask-image: radial-gradient(ellipse at 70% 20%, #000 10%, transparent 65%); pointer-events: none }
+.geroy .wrap { position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center }
+.geroy .tekst { display: grid; gap: 28px; min-width: 0 }
+.geroy h1 { font-size: clamp(44px, 7.4vw, 96px); font-weight: 800; letter-spacing: -0.045em; line-height: .98 }
+.geroy .podzag { font-size: clamp(18px, 1.6vw, 21px); color: var(--muted); max-width: 34em }
 .knopki { display: flex; gap: 12px; flex-wrap: wrap }
-.knopka { display: inline-block; padding: 14px 22px; border-radius: 10px; background: var(--accent); color: #fff; text-decoration: none; font-weight: 600 }
-.knopka.vtor { background: transparent; color: var(--ink); border: 1px solid var(--line) }
+.status { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: var(--muted) }
+.status b { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px rgba(127, 209, 168, .15) }
 
-.log { background: var(--log-bg); color: var(--log-fg); border-radius: 14px; padding: 22px 22px 18px; font: 13.5px/1.75 var(--f-mono); overflow-x: auto; min-width: 0 }
-.log .z { color: #6E7E8C; display: block; margin-bottom: 8px }
-.log .ok { color: var(--log-ok) }
-.log .t { color: #8FA3B5 }
-.log .s { color: var(--accent) }
-.log .kursor { display: inline-block; width: 8px; height: 1em; background: var(--log-fg); vertical-align: -2px; animation: mig 1.1s steps(2) infinite }
+.log { margin: 0; background: #080c11; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; min-width: 0; box-shadow: 0 40px 80px -30px rgba(0,0,0,.7) }
+.log .bar { display: flex; gap: 7px; align-items: center; padding: 14px 16px; border-bottom: 1px solid var(--line); font: 12px var(--mono); color: var(--dim) }
+.log .bar i { width: 11px; height: 11px; border-radius: 50%; background: #2a3541 }
+.log .bar span { margin-left: 8px }
+.log pre { margin: 0; padding: 20px 20px 22px; font: 13.5px/1.85 var(--mono); color: #c9d4de; overflow-x: auto }
+.log .z { color: var(--dim) }
+.log .ok { color: var(--ok) }
+.log .t { color: #7c8fa2 }
+.log .s { color: var(--a1); font-weight: 500 }
+.log .kursor { display: inline-block; width: 8px; height: 1em; background: #c9d4de; vertical-align: -2px; animation: mig 1.1s steps(2) infinite }
 @keyframes mig { 50% { opacity: 0 } }
 
-.razdel { display: grid; grid-template-columns: 180px 1fr; gap: 32px }
-.razdel > .metka { padding-top: 10px }
-.razdel > div { display: grid; gap: 28px; min-width: 0 }
+/* полоса фактов */
+.fakty { border-block: 1px solid var(--line); background: var(--bg2) }
+.fakty .wrap { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) }
+.fakt { padding: 32px 24px; display: grid; gap: 6px; border-left: 1px solid var(--line) }
+.fakt:first-child { border-left: 0; padding-left: 0 }
+.fakt b { font-size: clamp(32px, 3.6vw, 44px); font-weight: 800; letter-spacing: -0.04em; line-height: 1 }
+.fakt span { color: var(--muted); font-size: 15px; line-height: 1.4 }
 
-.uslugi { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line) }
-.usluga { padding: 24px 24px 26px 0; border-bottom: 1px solid var(--line); display: grid; gap: 10px; align-content: start }
-.usluga:nth-child(odd) { border-right: 1px solid var(--line) }
-.usluga:nth-child(even) { padding-left: 24px }
+/* услуги */
+.uslugi { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px }
+.usluga { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 30px 28px 28px; display: grid; gap: 14px; align-content: start; transition: border-color .25s, transform .25s }
+.usluga:hover { border-color: #3a4756; transform: translateY(-3px) }
+.usluga .ik { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; background: rgba(255, 80, 70, .1); border: 1px solid rgba(255, 80, 70, .25); color: var(--a1) }
+.usluga .ik svg { width: 24px; height: 24px }
 .usluga p { color: var(--muted); font-size: 16px }
-.cena { font: 500 14px var(--f-mono); color: var(--ink); font-variant-numeric: tabular-nums }
+.usluga .cena { margin-top: 8px; padding-top: 16px; border-top: 1px solid var(--line); font: 500 14px var(--mono); color: var(--ink); font-variant-numeric: tabular-nums }
 
-.keysy { display: grid; gap: 40px }
-.keys { display: grid; grid-template-columns: 300px 1fr; gap: 28px; align-items: start }
-.keys img { width: 100%; border-radius: 10px; border: 1px solid var(--line); display: block }
-.keys > div { display: grid; gap: 10px; min-width: 0 }
-.keys p { color: var(--muted) }
-.cifry { font: 500 14px/1.6 var(--f-mono); color: var(--ink); font-variant-numeric: tabular-nums }
+/* кейсы */
+.keysy { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px }
+.keys { background: var(--card); border: 1px solid var(--line); border-radius: 24px; overflow: hidden; display: grid; grid-template-rows: auto 1fr }
+.keys .kartinka { aspect-ratio: 16 / 9; overflow: hidden; background: #0a0f14; border-bottom: 1px solid var(--line) }
+.keys img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s }
+.keys:hover img { transform: scale(1.03) }
+.keys .telo { padding: 28px; display: grid; gap: 14px; align-content: start }
+.keys p { color: var(--muted); font-size: 16px }
+.keys .cifra { font: 500 14px/1.5 var(--mono); color: var(--ink) }
+.keys .cifra::before { content: "→ "; color: var(--a1) }
+.tegi { display: flex; flex-wrap: wrap; gap: 8px }
+.tegi span { font: 500 12px/1 var(--mono); color: var(--muted); padding: 7px 10px; border: 1px solid var(--line); border-radius: 999px }
+.keys.glav { grid-column: 1 / -1; grid-template-columns: 1.15fr .85fr; grid-template-rows: auto }
+.keys.glav .kartinka { aspect-ratio: auto; min-height: 100%; border-bottom: 0; border-right: 1px solid var(--line) }
+.keys.glav .telo { padding: 44px; align-content: center }
+.keys.glav h3 { font-size: clamp(24px, 2.6vw, 32px) }
+.ssylki { display: flex; gap: 18px; flex-wrap: wrap; font-size: 15px }
+.ssylki a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--a1); padding-bottom: 2px }
+.ssylki a:hover { color: var(--a1) }
 
-.shagi { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; counter-reset: s }
-.shagi li { counter-increment: s; display: grid; gap: 8px; align-content: start; padding-top: 14px; border-top: 2px solid var(--ink) }
-.shagi li::before { content: counter(s); font: 700 13px var(--f-mono); color: var(--accent) }
-.shagi p { font-size: 16px; color: var(--muted) }
+/* процесс */
+.shagi { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; counter-reset: s }
+.shagi li { counter-increment: s; position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 28px 24px; display: grid; gap: 10px; align-content: start }
+.shagi li::before { content: "0" counter(s); font: 800 44px/1 var(--f); letter-spacing: -0.04em; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 14px }
+.shagi .srok { font: 500 12px var(--mono); color: var(--dim); text-transform: uppercase; letter-spacing: .08em }
+.shagi p { color: var(--muted); font-size: 16px }
 
-.forma { display: grid; gap: 8px; max-width: 560px }
-.forma label { font-size: 14px; color: var(--muted); margin-top: 6px }
-.forma input, .forma textarea { font: 16px var(--f-body); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; width: 100% }
-.forma input:focus-visible, .forma textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px }
-.forma .knopka { margin-top: 12px; border: 0; cursor: pointer; justify-self: start }
+/* цены */
+.ceny { background: var(--card); border: 1px solid var(--line); border-radius: 24px; overflow: hidden }
+.stroka { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: baseline; padding: 22px 32px; border-top: 1px solid var(--line) }
+.stroka:first-child { border-top: 0 }
+.stroka h3 { font-size: 18px }
+.stroka small { display: block; color: var(--muted); font-size: 15px; font-weight: 400; letter-spacing: 0; margin-top: 4px }
+.stroka b { font-size: clamp(20px, 2.2vw, 26px); font-weight: 800; letter-spacing: -0.03em; white-space: nowrap; font-variant-numeric: tabular-nums }
+.pod-cenami { margin-top: 20px; color: var(--muted); font-size: 15px }
+.pod-cenami a { color: var(--ink) }
+
+/* FAQ */
+.faq { display: grid; gap: 12px; max-width: 880px }
+.faq details { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 0 26px }
+.faq summary { list-style: none; cursor: pointer; padding: 22px 0; font-weight: 600; font-size: 18px; display: flex; justify-content: space-between; gap: 16px; align-items: center }
+.faq summary::-webkit-details-marker { display: none }
+.faq summary::after { content: "+"; font-size: 26px; font-weight: 400; color: var(--a1); line-height: 1; transition: transform .2s }
+.faq details[open] summary::after { transform: rotate(45deg) }
+.faq details p { color: var(--muted); padding-bottom: 22px; font-size: 16px }
+.faq a { color: var(--ink) }
+
+/* связь */
+.svyaz { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 28px; padding: 56px; display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; overflow: hidden }
+.svyaz::before { content: ""; position: absolute; width: 600px; height: 600px; left: -240px; bottom: -320px; background: radial-gradient(closest-side, rgba(255, 70, 90, .18), transparent); pointer-events: none }
+.svyaz > div { position: relative; display: grid; gap: 22px; align-content: start; min-width: 0 }
+.svyaz h2 { font-size: clamp(30px, 4vw, 48px) }
+.svyaz .lid { color: var(--muted); font-size: 18px }
+.svyaz .lid b { color: var(--ink) }
+.forma { position: relative; display: grid; gap: 8px; min-width: 0 }
+.forma label { font-size: 14px; color: var(--muted); margin-top: 8px }
+.forma input, .forma textarea { font: 16px var(--f); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; width: 100%; transition: border-color .2s }
+.forma input::placeholder, .forma textarea::placeholder { color: var(--dim) }
+.forma input:focus-visible, .forma textarea:focus-visible { outline: none; border-color: var(--a1); box-shadow: 0 0 0 3px rgba(255, 96, 40, .2) }
+.forma .knopka { margin-top: 14px; justify-self: start }
 .lovushka { position: absolute; left: -9999px; width: 1px; height: 1px }
 .f-status { font-size: 15px; min-height: 1.4em }
 .melko { font-size: 14px; color: var(--muted) }
-.svyaz { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 32px; display: grid; gap: 18px }
-footer { color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap }
+.melko a { color: var(--ink) }
 
-@media (max-width: 820px) {
-  .geroy, .razdel, .keys { grid-template-columns: 1fr }
-  .razdel { gap: 12px }
-  .uslugi { grid-template-columns: 1fr }
-  .usluga:nth-child(odd) { border-right: 0 }
-  .usluga:nth-child(even) { padding-left: 0 }
+footer { padding-block: 40px 48px; color: var(--dim); font-size: 14px }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap }
+footer a { color: var(--muted); text-decoration: none; margin-left: 18px }
+footer a:hover { color: var(--ink) }
+
+@media (max-width: 1000px) {
+  .shapka nav { display: none }
+  .geroy .wrap { grid-template-columns: 1fr }
+  .uslugi { grid-template-columns: repeat(2, minmax(0, 1fr)) }
   .shagi { grid-template-columns: repeat(2, minmax(0, 1fr)) }
-  .list { gap: 56px }
+  .keys.glav { grid-template-columns: 1fr }
+  .keys.glav .kartinka { aspect-ratio: 16 / 9; border-right: 0; border-bottom: 1px solid var(--line) }
+  .keys.glav .telo { padding: 28px }
+  .svyaz { grid-template-columns: 1fr; gap: 36px }
 }
-@media (prefers-reduced-motion: reduce) { .log .kursor { animation: none } }
+@media (max-width: 680px) {
+  .wrap { padding-inline: 16px }
+  section { padding-block: 72px }
+  .sh { margin-bottom: 36px }
+  .geroy { padding-block: 56px 56px }
+  .shapka .logo span { display: none }
+  .fakty .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+  .fakt { padding: 22px 0 22px 16px }
+  .fakt:nth-child(odd) { border-left: 0; padding-left: 0 }
+  .fakt:nth-child(n+3) { border-top: 1px solid var(--line) }
+  .uslugi, .keysy, .shagi { grid-template-columns: 1fr }
+  .stroka { padding: 18px 20px; grid-template-columns: 1fr }
+  .svyaz { padding: 32px 20px; border-radius: 22px }
+  .faq details { padding: 0 18px }
+  .log pre { font-size: 12px }
+  footer a { margin: 0 18px 0 0 }
+}
+@media (prefers-reduced-motion: reduce) { .log .kursor { animation: none } * { transition: none !important } html { scroll-behavior: auto } }
 </style>
 
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -119,20 +217,29 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 <!-- /Yandex.Metrika counter -->
 </head>
 <body>
-<div class="list">
-  <header>
-    <span class="imya">Фетисов. Автоматизация</span>
-    <nav><a href="#uslugi">Услуги</a><a href="#keysy">Работы</a><a href="#kak">Как работаю</a><a href="#svyaz">Связаться</a></nav>
-  </header>
+<!-- ПРЕВЬЮ: картинки идут из img/. При выкладке заменить "img/" на "img/". -->
+<header class="shapka">
+  <div class="wrap">
+    <a class="logo" href="#"><i>АФ</i><span>Фетисов. Автоматизация</span></a>
+    <nav><a href="#uslugi">Услуги</a><a href="#keysy">Работы</a><a href="#kak">Как работаю</a><a href="#ceny">Цены</a><a href="#faq">Вопросы</a></nav>
+    <a class="knopka" href="https://t.me/fetisov_pro">Написать в Telegram</a>
+  </div>
+</header>
 
-  <section class="geroy">
-    <div>
-      <span class="metka">Python · ИИ · боты · приложения</span>
-      <h1>Делаю то, что работает без вас</h1>
-      <p class="podzag">Чат-боты, парсеры, связки сервисов, ИИ для почты и документов, приложения для Mac и Windows. Рутина уходит в программу, вы занимаетесь делом.</p>
+<main>
+<section class="geroy">
+  <div class="wrap">
+    <div class="tekst">
+      <span class="metka">Python · нейросети · малый бизнес</span>
+      <h1>Делаю то, что <span class="grad">работает без вас</span></h1>
+      <p class="podzag">Чат-боты, парсеры, Excel и Google Таблицы, ИИ для почты и документов, карточки и ролики для WB и Ozon, приложения для Mac, Windows и веба. Рутина уходит в программу — вы занимаетесь делом.</p>
       <div class="knopki"><a class="knopka" href="https://t.me/fetisov_pro">Написать в Telegram</a><a class="knopka vtor" href="#svyaz">Оставить заявку</a></div>
+      <span class="status"><b></b>Оценю задачу в тот же день · чек самозанятого</span>
     </div>
-    <pre class="log" aria-label="Пример журнала ночного конвейера"><span class="z"># конвейер роликов, ночной прогон</span><span class="t">01:12</span> сценарий: 4 830 слов <span class="ok">готово</span>
+    <figure class="log" aria-label="Пример журнала ночного конвейера">
+      <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>konveyer.log — ночной прогон</span></div>
+<pre><span class="z"># конвейер роликов, ночной прогон</span>
+<span class="t">01:12</span> сценарий: 4 830 слов <span class="ok">готово</span>
 <span class="t">01:19</span> озвучка: 31 мин 40 с <span class="ok">готово</span>
 <span class="t">01:58</span> кадры: 96 из 96 <span class="ok">готово</span>
 <span class="t">02:41</span> сборка 1920×1080, субтитры <span class="ok">готово</span>
@@ -140,79 +247,161 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 <span class="t">02:46</span> загрузка, выход в 18:00 <span class="ok">запланирован</span>
 <span class="t">02:47</span> шортсы из глав: 6 <span class="ok">в очереди</span>
 <span class="t">02:47</span> человек нужен: <span class="s">нет</span> <span class="kursor"></span></pre>
-  </section>
+    </figure>
+  </div>
+</section>
 
-  <section class="razdel" id="uslugi">
-    <span class="metka">Услуги</span>
-    <div>
-      <h2>Что могу сделать</h2>
-      <div class="uslugi">
-        <div class="usluga"><h3>Чат-боты</h3><p>Telegram, ВКонтакте, MAX. Запись клиентов, приём заявок, каталог с корзиной, рассылки, ИИ-консультант по вашей базе знаний.</p><span class="cena">от 3 000 ₽ · 2 дня</span></div>
-        <div class="usluga"><h3>Парсеры и связки сервисов</h3><p>Цены и отзывы в таблицу, выгрузки по расписанию, сайт ↔ CRM ↔ Google Таблицы через API, отчёты в мессенджер.</p><span class="cena">от 3 000 ₽</span></div>
-        <div class="usluga"><h3>ИИ для почты и документов</h3><p>Сортировка писем, краткая суть и срочность, черновики ответов, задачи из писем. Gmail, Яндекс 360, Exchange.</p><span class="cena">по задаче, от 30 000 ₽</span></div>
-        <div class="usluga"><h3>Приложения для Mac и Windows</h3><p>Внутренние инструменты компании и веб-кабинеты, которые открываются по ссылке. Без публикации в App Store и Google Play и без их модерации.</p><span class="cena">по задаче</span></div>
-        <div class="usluga"><h3>Контент на нейросетях</h3><p>Рекламные ролики и шортсы с озвучкой, превью для YouTube, карточки для WB и Ozon, презентации.</p><span class="cena">от 500 ₽</span></div>
-        <div class="usluga"><h3>Таблицы и отчёты</h3><p>Excel и Google Таблицы: формулы, чистка данных, сводные, дашборды, учёт склада и бюджета.</p><span class="cena">от 500 ₽</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="razdel" id="keysy">
-    <span class="metka">Работы</span>
-    <div class="keysy">
-      <h2>Что уже работает</h2>
-      <div class="keys">
-        <img src="img/youtube.jpg" alt="Превью ролика с ИИ-кадром и крупной надписью" loading="lazy">
-        <div><h3>Конвейер роликов для YouTube</h3><p>Три своих канала ведёт программа: пишет сценарий, озвучивает, генерирует кадры, собирает ролик, делает обложку и загружает по расписанию. Ночью, без участия человека. Шортсы режутся из глав автоматически.</p><span class="cifry">3 канала · 3 языка · ролик 30–50 мин за ночь</span></div>
-      </div>
-      <div class="keys">
-        <img src="img/bot.jpg" alt="Экран чат-бота записи клиентов" loading="lazy">
-        <div><h3>Чат-боты для малого бизнеса</h3><p>Сценарии: запись со свободными окнами и напоминанием, приём заявок в таблицу, каталог с корзиной, мониторинг цен, ИИ-консультант, который отвечает только по вашим документам.</p><span class="cifry">Python · 2 дня на типового бота · код ваш</span></div>
-      </div>
-      <div class="keys">
-        <img src="img/tablica.jpg" alt="Отчёт по продажам в таблице с графиком" loading="lazy">
-        <div><h3>Почтовый клиент и учёт времени</h3><p>Своё приложение для Mac: почта, задачи и календарь в одной ленте, письма сами встают в свободное время, ИИ-черновики по кнопке. И учёт времени по проектам с отчётами за неделю.</p><span class="cifry">SwiftUI · Tauri · Exchange, Gmail, Todoist</span></div>
-      </div>
-      <div class="keys">
-        <img src="img/kartochka.jpg" alt="Карточка товара для маркетплейса с инфографикой" loading="lazy">
-        <div><h3>Контент для маркетплейсов</h3><p>Фото товара в сцене, инфографика с преимуществами, видеообложки и рекламные ролики с озвучкой — всё сгенерировано и собрано автоматически.</p><span class="cifry">900×1200 · 9:16 · 16:9</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="razdel" id="kak">
-    <span class="metka">Как работаю</span>
-    <div>
-      <h2>От задачи до работающей программы</h2>
-      <ol class="shagi">
-        <li><h3>Задача</h3><p>Опишите своими словами, что мешает. ТЗ помогу составить.</p></li>
-        <li><h3>Оценка</h3><p>Срок и цену называю до начала работы и не меняю по ходу.</p></li>
-        <li><h3>Прототип</h3><p>Первую работающую версию показываю через 1–2 дня.</p></li>
-        <li><h3>Сдача</h3><p>Код и инструкция ваши, 7 дней бесплатно исправляю ошибки.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="svyaz" id="svyaz">
-    <span class="metka">Связаться</span>
-    <h2>Напишите задачу — оценю в тот же день</h2>
-    <p>Telegram: <b>@fetisov_pro</b> — отвечаю быстрее всего. Или оставьте заявку здесь, напишу сам.</p>
-    <form id="forma" class="forma" novalidate>
-      <label for="f-imya">Как к вам обращаться</label>
-      <input id="f-imya" name="imya" autocomplete="name" maxlength="80">
-      <label for="f-svyaz">Telegram, телефон или почта</label>
-      <input id="f-svyaz" name="svyaz" required maxlength="120" placeholder="@ник, +7… или почта">
-      <label for="f-zadacha">Задача</label>
-      <textarea id="f-zadacha" name="zadacha" required rows="5" maxlength="3000" placeholder="Что нужно сделать и к какому сроку"></textarea>
-      <input class="lovushka" id="f-sait" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <button class="knopka" type="submit" id="f-otpravit">Отправить заявку</button>
-      <p class="f-status" id="f-status" role="status"></p>
-    </form>
-    <p class="melko">Оплата: 50% предоплата, остальное после сдачи, чек самозанятого. Если удобнее безопасная сделка — тот же заказ можно оформить <a href="https://kwork.ru/user/agfetisov">через Kwork</a>.</p>
-  </section>
-
-  <footer><span>Александр Фетисов · самозанятый · Telegram @fetisov_pro</span><span>2026</span></footer>
+<div class="fakty">
+  <div class="wrap">
+    <div class="fakt"><b class="grad">3</b><span>YouTube-канала ведёт моя программа — без человека</span></div>
+    <div class="fakt"><b>2 дня</b><span>типовой чат-бот под ключ</span></div>
+    <div class="fakt"><b>1–2 дня</b><span>до первой работающей версии</span></div>
+    <div class="fakt"><b>7 дней</b><span>бесплатно исправляю ошибки после сдачи</span></div>
+  </div>
 </div>
+
+<section id="uslugi">
+  <div class="wrap">
+    <div class="sh"><span class="metka">Услуги</span><h2>Что могу сделать</h2><p>Берусь за задачи, которые съедают ваши часы каждую неделю. Цена и срок — до начала работы.</p></div>
+    <div class="uslugi">
+      <article class="usluga"><span class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M9 11h.01M13 11h.01M17 11h.01"/></svg></span><h3>Чат-боты</h3><p>Telegram, ВКонтакте, MAX. Запись клиентов, приём заявок, каталог с корзиной, рассылки, ИИ-консультант по вашей базе знаний.</p><span class="cena">от 3 000 ₽ · 2 дня</span></article>
+      <article class="usluga"><span class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M4 12h16M4 17h7"/><circle cx="18" cy="7" r="2"/><circle cx="15" cy="17" r="2"/></svg></span><h3>Парсеры и связки сервисов</h3><p>Цены и отзывы в таблицу, выгрузки по расписанию, сайт ↔ CRM ↔ Google Таблицы через API, отчёты в мессенджер.</p><span class="cena">от 3 000 ₽</span></article>
+      <article class="usluga"><span class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><h3>ИИ для почты и документов</h3><p>Сортировка писем, краткая суть и срочность, черновики ответов, задачи из писем. Gmail, Яндекс 360, Exchange.</p><span class="cena">по задаче, от 30 000 ₽</span></article>
+      <article class="usluga"><span class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><h3>Приложения для Mac, Windows и веба</h3><p>Внутренние инструменты компании и веб-кабинеты, которые открываются по ссылке, — без публикации в App Store и Google Play и без их модерации. Если нужен магазин приложений — тоже сделаю.</p><span class="cena">по задаче</span></article>
+      <article class="usluga"><span class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m10 9 5 3-5 3z"/></svg></span><h3>Контент на нейросетях</h3><p>Рекламные ролики и шортсы с озвучкой, превью для YouTube, карточки для WB и Ozon, презентации.</p><span class="cena">от 500 ₽</span></article>
+      <article class="usluga"><span class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg></span><h3>Таблицы и отчёты</h3><p>Excel и Google Таблицы: формулы, чистка данных, сводные, дашборды, учёт склада и бюджета.</p><span class="cena">от 500 ₽</span></article>
+    </div>
+  </div>
+</section>
+
+<section id="keysy" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><span class="metka">Работы</span><h2>Что уже работает</h2><p>Не макеты, а программы, которые запущены и делают работу каждый день.</p></div>
+    <div class="keysy">
+      <article class="keys glav">
+        <div class="kartinka"><img src="img/youtube.jpg" alt="Превью ролика с ИИ-кадром и крупной надписью" loading="lazy"></div>
+        <div class="telo">
+          <div class="tegi"><span>Python</span><span>нейросети</span><span>YouTube API</span></div>
+          <h3>Конвейер роликов для YouTube</h3>
+          <p>Три своих канала ведёт программа: пишет сценарий, озвучивает, генерирует кадры, собирает ролик, делает обложку и загружает по расписанию. Ночью, без участия человека. Шортсы режутся из глав автоматически.</p>
+          <span class="cifra">3 канала · 3 языка · ролик 30–50 мин за ночь</span>
+          <div class="ssylki"><a href="https://www.youtube.com/@agfetisov">YouTube-канал →</a></div>
+        </div>
+      </article>
+      <article class="keys">
+        <div class="kartinka"><img src="img/bot.jpg" alt="Экран чат-бота записи клиентов" loading="lazy"></div>
+        <div class="telo">
+          <div class="tegi"><span>Python</span><span>Telegram</span><span>Google Таблицы</span></div>
+          <h3>Чат-боты для малого бизнеса</h3>
+          <p>Сценарии: запись со свободными окнами и напоминанием, приём заявок в таблицу, каталог с корзиной, мониторинг цен, ИИ-консультант, который отвечает только по вашим документам.</p>
+          <span class="cifra">2 дня на типового бота · код ваш</span>
+          <div class="ssylki"><a href="https://github.com/flexndr/bot-zapis">Код бота записи на GitHub →</a></div>
+        </div>
+      </article>
+      <article class="keys">
+        <div class="kartinka"><img src="img/tablica.jpg" alt="Отчёт по продажам в таблице с графиком" loading="lazy"></div>
+        <div class="telo">
+          <div class="tegi"><span>SwiftUI</span><span>Tauri</span><span>Exchange · Gmail · Todoist</span></div>
+          <h3>Почтовый клиент и учёт времени</h3>
+          <p>Своё приложение для Mac: почта, задачи и календарь в одной ленте, письма сами встают в свободное время, ИИ-черновики по кнопке. И учёт времени по проектам с отчётами за неделю.</p>
+          <span class="cifra">настольное приложение, без магазина приложений</span>
+        </div>
+      </article>
+      <article class="keys">
+        <div class="kartinka"><img src="img/kartochka.jpg" alt="Карточка товара для маркетплейса с инфографикой" loading="lazy"></div>
+        <div class="telo">
+          <div class="tegi"><span>WB</span><span>Ozon</span><span>генерация + сборка</span></div>
+          <h3>Контент для маркетплейсов</h3>
+          <p>Фото товара в сцене, инфографика с преимуществами, видеообложки и рекламные ролики с озвучкой — всё сгенерировано и собрано автоматически.</p>
+          <span class="cifra">900×1200 · 9:16 · 16:9</span>
+        </div>
+      </article>
+      <article class="keys">
+        <div class="kartinka"><img src="img/shorts.jpg" alt="Кадр вертикального ролика с субтитрами" loading="lazy"></div>
+        <div class="telo">
+          <div class="tegi"><span>9:16</span><span>озвучка</span><span>субтитры</span></div>
+          <h3>Шортсы и рекламные ролики</h3>
+          <p>Вертикальные ролики с озвучкой и субтитрами: из длинного видео по главам или с нуля под товар и услугу.</p>
+          <span class="cifra">от 500 ₽ за ролик</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="kak" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><span class="metka">Как работаю</span><h2>От задачи до работающей программы</h2></div>
+    <ol class="shagi">
+      <li><span class="srok">в тот же день</span><h3>Задача</h3><p>Опишите своими словами, что мешает. ТЗ помогу составить.</p></li>
+      <li><span class="srok">до старта</span><h3>Оценка</h3><p>Срок и цену называю до начала работы и не меняю по ходу.</p></li>
+      <li><span class="srok">1–2 дня</span><h3>Прототип</h3><p>Первую работающую версию показываю через 1–2 дня.</p></li>
+      <li><span class="srok">+7 дней поддержки</span><h3>Сдача</h3><p>Код и инструкция ваши, 7 дней бесплатно исправляю ошибки.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="ceny" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><span class="metka">Цены</span><h2>Цены открыто, «от»</h2><p>Точную сумму назову после того, как прочитаю задачу. Она не меняется по ходу работы.</p></div>
+    <div class="ceny">
+      <div class="stroka"><h3>Контент на нейросетях<small>ролики, шортсы, превью, карточки WB и Ozon</small></h3><b>от 500 ₽</b></div>
+      <div class="stroka"><h3>Таблицы и отчёты<small>формулы, чистка, сводные, дашборды</small></h3><b>от 500 ₽</b></div>
+      <div class="stroka"><h3>Чат-бот<small>Telegram, ВКонтакте, MAX · типовой за 2 дня</small></h3><b class="grad">от 3 000 ₽</b></div>
+      <div class="stroka"><h3>Парсер или связка сервисов<small>сайт ↔ CRM ↔ таблицы, выгрузки по расписанию</small></h3><b>от 3 000 ₽</b></div>
+      <div class="stroka"><h3>ИИ для почты и документов<small>Gmail, Яндекс 360, Exchange</small></h3><b>от 30 000 ₽</b></div>
+      <div class="stroka"><h3>Приложение для Mac, Windows или веба<small>внутренние инструменты, веб-кабинеты</small></h3><b>по задаче</b></div>
+    </div>
+    <p class="pod-cenami">Оплата: 50% предоплата, остальное после сдачи, чек самозанятого. Безопасная сделка — <a href="https://kwork.ru/user/agfetisov">через Kwork</a>.</p>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><span class="metka">Вопросы</span><h2>Частые вопросы</h2></div>
+    <div class="faq">
+      <details><summary>У меня нет ТЗ. С чего начать?</summary><p>Опишите своими словами, что мешает и что хотите получить. Задам пару вопросов и сам составлю ТЗ — вы только подтвердите.</p></details>
+      <details><summary>Как проходит оплата?</summary><p>50% предоплата, остальное после сдачи. Выдаю чек самозанятого. Если удобнее безопасная сделка — тот же заказ можно оформить <a href="https://kwork.ru/user/agfetisov">через Kwork</a>.</p></details>
+      <details><summary>Чей будет код?</summary><p>Ваш. Передаю код и инструкцию, как запускать. Пример — <a href="https://github.com/flexndr/bot-zapis">бот записи клиентов на GitHub</a>.</p></details>
+      <details><summary>Что если после сдачи что-то сломается?</summary><p>7 дней после сдачи исправляю ошибки бесплатно. Доработки после — по договорённости.</p></details>
+      <details><summary>Как быстро будет результат?</summary><p>Первую работающую версию показываю через 1–2 дня. Типовой чат-бот — 2 дня под ключ. Срок большой задачи назову при оценке.</p></details>
+      <details><summary>Можно приложение без App Store и Google Play?</summary><p>Да. Настольное приложение для Mac и Windows или веб-кабинет по ссылке — без публикации в магазинах и без их модерации. Если нужна публикация в магазине — тоже сделаю.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="svyaz-blok" style="padding-top:0">
+  <div class="wrap">
+    <div class="svyaz" id="svyaz">
+      <div>
+        <span class="metka">Связаться</span>
+        <h2>Напишите задачу — <span class="grad">оценю в тот же день</span></h2>
+        <p class="lid">Telegram: <b>@fetisov_pro</b> — отвечаю быстрее всего. Или оставьте заявку здесь, напишу сам.</p>
+        <div class="knopki"><a class="knopka" href="https://t.me/fetisov_pro">Написать в Telegram</a></div>
+        <p class="melko">Оплата: 50% предоплата, остальное после сдачи, чек самозанятого. Если удобнее безопасная сделка — тот же заказ можно оформить <a href="https://kwork.ru/user/agfetisov">через Kwork</a>.</p>
+      </div>
+      <form id="forma" class="forma" novalidate>
+        <label for="f-imya">Как к вам обращаться</label>
+        <input id="f-imya" name="imya" autocomplete="name" maxlength="80">
+        <label for="f-svyaz">Telegram, телефон или почта</label>
+        <input id="f-svyaz" name="svyaz" required maxlength="120" placeholder="@ник, +7… или почта">
+        <label for="f-zadacha">Задача</label>
+        <textarea id="f-zadacha" name="zadacha" required rows="5" maxlength="3000" placeholder="Что нужно сделать и к какому сроку"></textarea>
+        <input class="lovushka" id="f-sait" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="knopka" type="submit" id="f-otpravit">Отправить заявку</button>
+        <p class="f-status" id="f-status" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Александр Фетисов · самозанятый · Telegram @fetisov_pro · 2026</span>
+    <span><a href="https://t.me/fetisov_pro">Telegram</a><a href="https://www.youtube.com/@agfetisov">YouTube</a><a href="https://github.com/flexndr">GitHub</a><a href="https://kwork.ru/user/agfetisov">Kwork</a></span>
+  </div>
+</footer>
 <script>
 (function () {
   var f = document.getElementById('forma'), st = document.getElementById('f-status'), kn = document.getElementById('f-otpravit');
