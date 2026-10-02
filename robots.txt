@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://agfetisov.ru/sitemap.xml
