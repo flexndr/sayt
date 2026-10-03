@@ -17,9 +17,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Фетисов. Автоматизация","url":"https://agfetisov.ru/","image":"https://agfetisov.ru/img/youtube.jpg","description":"Автоматизация на Python и нейросетях для малого бизнеса: чат-боты, парсеры, таблицы, ИИ для почты и документов, приложения, контент для маркетплейсов.","priceRange":"от 500 ₽","areaServed":"RU","founder":{"@type":"Person","name":"Александр Фетисов"},"sameAs":["https://t.me/fetisov_pro","https://github.com/flexndr","https://www.youtube.com/@agfetisov","https://kwork.ru/user/agfetisov"]}
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
 :root {
   --bg: #0e141b; --bg2: #121a23; --card: #151e28; --card2: #1a2531; --ink: #f2f5f8; --muted: #9aa8b6; --dim: #6b7988; --line: #24303c;
@@ -156,12 +154,10 @@ a:focus-visible, .knopka:focus-visible, summary:focus-visible { outline: 3px sol
 .svyaz .lid { color: var(--muted); font-size: 18px }
 .svyaz .knopka { margin-left: 10px; justify-self: start }
 .svyaz .lid b { color: var(--ink) }
-.forma { position: relative; display: grid; gap: 8px; min-width: 0 }
-.forma label { font-size: 14px; color: var(--muted); margin-top: 8px }
-.forma input, .forma textarea { font: 16px var(--f); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; width: 100%; transition: border-color .2s }
-.forma input::placeholder, .forma textarea::placeholder { color: var(--dim) }
-.forma input:focus-visible, .forma textarea:focus-visible { outline: none; border-color: var(--a1); box-shadow: 0 0 0 3px rgba(255, 96, 40, .2) }
-.forma .knopka { margin-top: 14px; justify-self: start }
+.kanaly { position: relative; display: grid; gap: 12px; align-content: start; min-width: 0 }
+.kanal { display: grid; gap: 2px; padding: 18px 20px; background: var(--bg); border: 1px solid var(--line); border-radius: 14px; color: var(--ink); text-decoration: none; transition: border-color .15s }
+.kanal:hover { border-color: var(--a1) }
+.kanal b { font-size: 18px } .kanal span { color: var(--muted); font-size: 14px }
 .lovushka { position: absolute; left: -9999px; width: 1px; height: 1px }
 .f-status { font-size: 15px; min-height: 1.4em }
 .melko { font-size: 14px; color: var(--muted) }
@@ -205,17 +201,6 @@ footer a:hover { color: var(--ink) }
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="/icon-192.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
-k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
-ym(113325902,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});
-document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="t.me/"]');if(a)ym(113325902,'reachGoal','telegram');});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/113325902" style="position:absolute;left:-9999px;" alt=""></div></noscript>
-<!-- /Yandex.Metrika counter -->
 </head>
 <body>
 <!-- ПРЕВЬЮ: картинки идут из img/. При выкладке заменить "img/" на "img/". -->
@@ -234,7 +219,7 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
       <span class="metka">Python · нейросети · малый бизнес</span>
       <h1>Делаю то, что <span class="grad">работает без вас</span></h1>
       <p class="podzag">Чат-боты, парсеры, Excel и Google Таблицы, ИИ для почты и документов, карточки и ролики для WB и Ozon, приложения для Mac, Windows и веба. Рутина уходит в программу — вы занимаетесь делом.</p>
-      <div class="knopki"><a class="knopka" href="https://t.me/fetisov_pro">Написать в Telegram</a><a class="knopka vtor" href="#svyaz">Оставить заявку</a></div>
+      <div class="knopki"><a class="knopka" href="https://t.me/fetisov_pro">Написать в Telegram</a><a class="knopka vtor" href="#svyaz">Все способы связи</a></div>
       <span class="status"><b></b>Оценю задачу в тот же день · чек самозанятого</span>
     </div>
     <figure class="log" aria-label="Пример журнала ночного конвейера">
@@ -377,21 +362,16 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
       <div>
         <span class="metka">Связаться</span>
         <h2>Напишите задачу — <span class="grad">оценю в тот же день</span></h2>
-        <p class="lid">Telegram: <b>@fetisov_pro</b> — отвечаю быстрее всего. Или оставьте заявку здесь, напишу сам.</p>
+        <p class="lid">Напишите, как удобно — в Telegram, MAX, ВКонтакте или на почту. Расскажите, что мешает и что хотите получить.</p>
         <div class="knopki"><a class="knopka" href="https://t.me/fetisov_pro">Написать в Telegram</a></div>
         <p class="melko">Оплата: 50% предоплата, остальное после сдачи, чек самозанятого. Если удобнее безопасная сделка — тот же заказ можно оформить <a href="https://kwork.ru/user/agfetisov">через Kwork</a>.</p>
       </div>
-      <form id="forma" class="forma" novalidate>
-        <label for="f-imya">Как к вам обращаться</label>
-        <input id="f-imya" name="imya" autocomplete="name" maxlength="80">
-        <label for="f-svyaz">Telegram, телефон или почта</label>
-        <input id="f-svyaz" name="svyaz" required maxlength="120" placeholder="@ник, +7… или почта">
-        <label for="f-zadacha">Задача</label>
-        <textarea id="f-zadacha" name="zadacha" required rows="5" maxlength="3000" placeholder="Что нужно сделать и к какому сроку"></textarea>
-        <input class="lovushka" id="f-sait" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button class="knopka" type="submit" id="f-otpravit">Отправить заявку</button>
-        <p class="f-status" id="f-status" role="status"></p>
-      </form>
+      <div class="kanaly">
+        <a class="kanal" href="https://t.me/fetisov_pro" rel="noopener"><b>Telegram</b><span>@fetisov_pro · отвечаю быстрее всего</span></a>
+        <a class="kanal" id="k-max" href="https://web.max.ru/133047857" rel="noopener"><b>MAX</b><span>мессенджер, без VPN</span></a>
+        <a class="kanal" href="https://vk.me/agfetisov" rel="noopener"><b>ВКонтакте</b><span>сообщения сообщества</span></a>
+        <a class="kanal" id="k-pochta" href="#" data-u="flexndr+rabota" data-d="gmail.com"><b>Почта</b><span>нажмите, чтобы написать письмо</span></a>
+      </div>
     </div>
   </div>
 </section>
@@ -399,24 +379,16 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 
 <footer>
   <div class="wrap">
-    <span>Александр Фетисов · самозанятый · Telegram @fetisov_pro · 2026</span>
-    <span><a href="https://t.me/fetisov_pro">Telegram</a><a href="https://www.youtube.com/@agfetisov">YouTube</a><a href="https://github.com/flexndr">GitHub</a><a href="https://kwork.ru/user/agfetisov">Kwork</a></span>
+    <span>Александр Фетисов · самозанятый · 2026 · <a href="/privacy.html">Конфиденциальность</a> · сайт не собирает персональные данные и не использует cookie</span>
+    <span><a href="https://t.me/fetisov_pro">Telegram</a><a href="https://vk.ru/agfetisov">ВКонтакте</a><a href="https://www.youtube.com/@agfetisov">YouTube</a><a href="https://github.com/flexndr">GitHub</a><a href="https://kwork.ru/user/agfetisov">Kwork</a></span>
   </div>
 </footer>
 <script>
-(function () {
-  var f = document.getElementById('forma'), st = document.getElementById('f-status'), kn = document.getElementById('f-otpravit');
-  f.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var d = { 'Имя': f.imya.value.trim(), 'Контакт': f.svyaz.value.trim(), 'Задача': f.zadacha.value.trim(), _gotcha: f._gotcha.value, _subject: 'Заявка с сайта agfetisov' };
-    if (!d['Контакт'] || !d['Задача']) { st.textContent = 'Укажите контакт и задачу — без них не смогу ответить.'; return; }
-    kn.disabled = true; st.textContent = 'Отправляю…';
-    fetch('https://formspree.io/f/mkjgadrb', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(d) })
-      .then(function (r) { if (!r.ok) throw 0; st.textContent = 'Заявка отправлена. Напишу вам в течение дня.'; f.reset(); if (window.ym) ym(113325902, 'reachGoal', 'forma'); })
-      .catch(function () { st.textContent = 'Не отправилось. Напишите в Telegram @fetisov_pro — отвечу там.'; })
-      .finally(function () { kn.disabled = false; });
-  });
-})();
+// почта собирается только при клике — в коде страницы адреса целиком нет (защита от сборщиков спама)
+document.getElementById('k-pochta').addEventListener('click', function (e) {
+  e.preventDefault(); var u = this.dataset.u, d = this.dataset.d;
+  location.href = 'mai' + 'lto:' + u + String.fromCharCode(64) + d + '?subject=' + encodeURIComponent('Задача с сайта agfetisov.ru');
+});
 </script>
 </body>
 </html>
